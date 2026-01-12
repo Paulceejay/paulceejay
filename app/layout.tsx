@@ -1,16 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono, Outfit, Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { JsonLd } from "@/components/json-ld";
 import { siteConfig } from "@/config/site";
-
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const outfit = Outfit({
   subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
@@ -25,12 +31,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
-  authors: [
-    {
-      name: siteConfig.name,
-      url: siteConfig.url,
-    },
-  ],
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
   openGraph: {
     type: "website",
@@ -55,9 +56,7 @@ export const metadata: Metadata = {
     images: [siteConfig.ogImage],
     creator: `@${siteConfig.username}`,
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
+  icons: { icon: "/favicon.ico" },
 };
 
 export const viewport: Viewport = {
@@ -75,7 +74,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
+        className={`${outfit.variable} ${inter.variable} ${geistMono.variable} font-sans antialiased`}
       >
         <JsonLd />
         <ThemeProvider

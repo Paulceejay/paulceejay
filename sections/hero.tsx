@@ -3,97 +3,109 @@
 import { motion } from "framer-motion";
 import { Container } from "@/components/container";
 import { siteConfig } from "@/config/site";
-import { ArrowRight, Github, Linkedin, Twitter } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Twitter, Globe } from "lucide-react";
+import Link from "next/link";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden py-20 pb-16 md:py-32">
-      {/* Background decoration */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(45%_45%_at_50%_50%,var(--color-primary)_0%,transparent_100%)] opacity-[0.03] dark:opacity-[0.05]" />
+    <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden pt-32 pb-16">
+      {/* Background Orbs */}
+      <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[120px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-secondary/10 blur-[120px]" />
+      </div>
 
-      <Container className="text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+      <Container>
+        <div className="flex flex-col items-center text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-bold text-primary mb-8"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
             Available for new opportunities
-          </span>
-          <h1 className="mt-6 text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl">
-            Hi, I'm <span className="text-primary">{siteConfig.name}</span>
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl">
-            A passionate{" "}
-            <span className="font-medium text-foreground">
-              Frontend & Mobile Engineer
-            </span>{" "}
-            dedicated to crafting polished, high-performance, and user-centric
-            digital experiences.
-          </p>
+          </motion.div>
 
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="#projects"
-              className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-7xl font-black tracking-tighter sm:text-9xl lg:text-[12rem] leading-[0.8] text-balance"
+          >
+            Chinedu <br />
+            <span className="text-primary italic">Paul</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mt-12 max-w-2xl text-xl text-muted-foreground sm:text-2xl leading-relaxed text-balance"
+          >
+            I&apos;m{" "}
+            <span className="font-bold text-foreground">Chinedu Paul</span>. I
+            build high-performance, beautifully crafted digital experiences with
+            React, Next.js, and React Native.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-12 flex flex-wrap items-center justify-center gap-4"
+          >
+            <Link
+              href="/work"
+              className="inline-flex h-14 items-center justify-center rounded-full bg-primary px-10 text-lg font-bold text-primary-foreground shadow-2xl shadow-primary/25 transition-all card-hover"
             >
-              View My Work
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex h-11 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+              View Projects
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex h-14 items-center justify-center rounded-full border-2 border-primary bg-transparent px-10 text-lg font-bold text-primary transition-all hover:bg-primary hover:text-white card-hover"
             >
               Get in Touch
-            </a>
-          </div>
+            </Link>
+          </motion.div>
 
-          <div className="mt-12 flex justify-center gap-6">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="mt-20 flex items-center gap-8 text-muted-foreground"
+          >
             <a
               href={siteConfig.links.github}
               target="_blank"
               rel="noreferrer"
-              className="text-muted-foreground transition-colors hover:text-foreground"
+              className="hover:text-primary transition-colors hover:scale-125 duration-300"
             >
-              <Github className="h-6 w-6" />
-              <span className="sr-only">GitHub</span>
-            </a>
-            <a
-              href={siteConfig.links.twitter}
-              target="_blank"
-              rel="noreferrer"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <Twitter className="h-6 w-6" />
-              <span className="sr-only">Twitter</span>
+              <Github className="h-7 w-7" />
             </a>
             <a
               href={siteConfig.links.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="text-muted-foreground transition-colors hover:text-foreground"
+              className="hover:text-primary transition-colors hover:scale-125 duration-300"
             >
-              <Linkedin className="h-6 w-6" />
-              <span className="sr-only">LinkedIn</span>
+              <Linkedin className="h-7 w-7" />
             </a>
-          </div>
-        </motion.div>
-      </Container>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
-      >
-        <div className="flex flex-col items-center">
-          <span className="mb-2 text-xs font-medium uppercase tracking-widest text-muted-foreground">
-            Scroll
-          </span>
-          <div className="h-10 w-[1px] bg-gradient-to-b from-primary to-transparent" />
+            <a
+              href={siteConfig.links.twitter}
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-primary transition-colors hover:scale-125 duration-300"
+            >
+              <Twitter className="h-7 w-7" />
+            </a>
+          </motion.div>
         </div>
-      </motion.div>
+      </Container>
     </section>
   );
 }

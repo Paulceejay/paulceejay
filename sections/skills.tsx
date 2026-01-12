@@ -1,49 +1,60 @@
 "use client";
 
 import { motion } from "framer-motion";
+import * as LucideIcons from "lucide-react";
 import { Container } from "@/components/container";
 import { skills } from "@/data/skills";
-import { cn } from "@/lib/utils";
 
 export function Skills() {
   return (
-    <section id="skills" className="bg-muted/50 py-20 md:py-32">
+    <section id="skills" className="py-24 md:py-32 bg-muted/30">
       <Container>
-        <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            My Tech Stack
+        <div className="max-w-3xl mb-20 space-y-4">
+          <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-primary/60">
+            Technical Expertise
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            I specialize in a variety of modern technologies to build
-            high-performance web and mobile applications.
-          </p>
+          <h3 className="text-4xl font-extrabold tracking-tight sm:text-6xl text-gradient">
+            Skills & <br /> Technologies
+          </h3>
         </div>
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {Object.entries(skills).map(([category, items], index) => (
-            <motion.div
-              key={category}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="rounded-xl border bg-background p-6 shadow-sm"
-            >
-              <h3 className="text-lg font-semibold capitalize tracking-tight">
-                {category}
-              </h3>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {items.map((skill) => (
-                  <li
-                    key={skill}
-                    className="inline-flex items-center rounded-md bg-secondary/50 px-2.5 py-0.5 text-xs font-medium text-secondary-foreground"
-                  >
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+          {skills.map((skill, index) => {
+            // Dynamic icon resolution
+            const Icon =
+              (LucideIcons as any)[
+                skill.icon
+                  .split("-")
+                  .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+                  .join("")
+              ] || LucideIcons.Code2;
+
+            return (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="group flex flex-col items-center gap-6 p-8 rounded-[2rem] border bg-card hover:border-primary/50 transition-all card-hover text-center"
+              >
+                <div
+                  className="p-5 rounded-2xl bg-muted/50 group-hover:scale-110 transition-all duration-300"
+                  style={{ color: (skill as any).color }}
+                >
+                  <Icon className="h-10 w-10 sm:h-12 sm:w-12 transition-transform group-hover:rotate-12" />
+                </div>
+                <div>
+                  <span className="text-base font-bold tracking-tight">
+                    {skill.name}
+                  </span>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    {skill.category}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </Container>
     </section>

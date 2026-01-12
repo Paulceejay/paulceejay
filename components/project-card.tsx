@@ -1,61 +1,93 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, ExternalLink } from "lucide-react";
-import { IProject } from "@/data/projects";
+import Image from "next/image";
+import { Github, ExternalLink, Code2 } from "lucide-react";
 
 interface ProjectCardProps {
-  project: IProject;
-  index: number;
+  project: {
+    title: string;
+    description: string;
+    image: string;
+    tags: string[];
+    live: string;
+    github: string;
+    category: string;
+    featured?: boolean;
+  };
 }
 
-export function ProjectCard({ project, index }: ProjectCardProps) {
+export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative overflow-hidden rounded-2xl border bg-background p-6 transition-all hover:shadow-lg"
+      transition={{ duration: 0.4 }}
+      className="group relative flex flex-col overflow-hidden rounded-[2.5rem] border bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 card-hover"
     >
-      <div className="flex flex-col h-full">
-        <h3 className="text-xl font-bold tracking-tight">{project.title}</h3>
-        <p className="mt-2 text-muted-foreground grow">{project.description}</p>
+      {/* Category Badge */}
+      <div className="absolute top-6 left-6 z-10">
+        <span className="px-4 py-1.5 rounded-full bg-primary/10 backdrop-blur-md text-xs font-bold uppercase tracking-widest text-primary border border-primary/20">
+          {project.category}
+        </span>
+      </div>
 
-        <div className="mt-4 flex flex-wrap gap-2">
-          {project.tech.map((tech) => (
+      {/* Image Container */}
+      <div className="relative aspect-[16/10] overflow-hidden m-4 rounded-[2rem]">
+        <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+        <div className="w-full h-full bg-muted flex items-center justify-center">
+          {/* Placeholder for images until user provides them */}
+          <Code2 className="h-16 w-16 text-muted-foreground/30 group-hover:scale-125 transition-transform duration-700" />
+        </div>
+        {/* If actual images exist:
+        <Image 
+          src={project.image} 
+          alt={project.title} 
+          fill 
+          className="object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+        */}
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-1 flex-col p-8 pt-2">
+        <h3 className="text-2xl font-extrabold tracking-tight mb-3">
+          {project.title}
+        </h3>
+        <p className="text-muted-foreground leading-relaxed flex-1 mb-8 line-clamp-2">
+          {project.description}
+        </p>
+
+        <div className="flex flex-wrap gap-2 mb-8">
+          {project.tags.map((tag) => (
             <span
-              key={tech}
-              className="inline-flex items-center rounded-md bg-primary/5 px-2 py-0.5 text-xs font-medium text-primary"
+              key={tag}
+              className="px-3 py-1 rounded-lg bg-muted text-[10px] font-bold uppercase tracking-widest"
             >
-              {tech}
+              {tag}
             </span>
           ))}
         </div>
 
-        <div className="mt-6 flex items-center gap-4">
-          {project.github && (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noreferrer"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <Github className="h-5 w-5" />
-              <span className="sr-only">GitHub</span>
-            </a>
-          )}
-          {project.link && (
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noreferrer"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <ExternalLink className="h-5 w-5" />
-              <span className="sr-only">Live Demo</span>
-            </a>
-          )}
+        <div className="flex items-center gap-4">
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noreferrer"
+            className="flex-1 inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-primary text-sm font-bold text-white transition-all card-hover"
+          >
+            Live Demo
+            <ExternalLink className="h-4 w-4" />
+          </a>
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border bg-background hover:bg-muted transition-all duration-300"
+          >
+            <Github className="h-5 w-5" />
+          </a>
         </div>
       </div>
     </motion.div>

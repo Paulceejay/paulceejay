@@ -2,57 +2,53 @@
 
 import { motion } from "framer-motion";
 import { Container } from "@/components/container";
-import { experiences } from "@/data/experience";
+import { experience } from "@/data/skills";
 
 export function Experience() {
   return (
-    <section id="experience" className="bg-muted/50 py-20 md:py-32">
+    <section id="experience" className="bg-muted/30 py-20 md:py-32">
       <Container>
-        <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            My Journey
+        <div className="text-center space-y-4 mb-20">
+          <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-primary/60">
+            Career
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            Professional experience and career highlights.
-          </p>
+          <h3 className="text-4xl font-extrabold tracking-tight sm:text-6xl text-gradient">
+            Professional Journey
+          </h3>
         </div>
 
-        <div className="mt-16 max-w-3xl mx-auto space-y-12">
-          {experiences.map((exp, index) => (
+        <div className="relative space-y-12 max-w-4xl mx-auto">
+          {experience.map((item, index) => (
             <motion.div
-              key={`${exp.company}-${index}`}
+              key={item.company}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative pl-8 border-l-2 border-primary/20"
+              className="relative flex flex-col md:flex-row gap-8 p-8 rounded-[2rem] border bg-card hover:border-primary/50 transition-all card-hover"
             >
-              <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full border-2 border-primary bg-background" />
-
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                <h3 className="text-xl font-bold tracking-tight">
-                  {exp.title}
-                </h3>
-                <span className="text-sm font-medium text-primary mt-1 sm:mt-0">
-                  {exp.period}
-                </span>
+              <div className="shrink-0">
+                <div className="h-16 w-16 rounded-2xl bg-primary/10 flex flex-center text-xl font-bold text-primary">
+                  {item.company[0]}
+                </div>
               </div>
 
-              <p className="text-lg font-medium text-foreground mt-1">
-                {exp.company} •{" "}
-                <span className="text-muted-foreground text-base">
-                  {exp.location}
-                </span>
-              </p>
-
-              <ul className="mt-4 space-y-2 text-muted-foreground">
-                {exp.description.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-base">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/50" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <div className="flex-1 space-y-2">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                  <h4 className="text-2xl font-extrabold tracking-tight">
+                    {item.role}
+                  </h4>
+                  <span className="text-sm font-bold text-primary/60">
+                    {item.duration}
+                  </span>
+                </div>
+                <p className="text-lg font-bold text-foreground/80">
+                  {item.company}
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
