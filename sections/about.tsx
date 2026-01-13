@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+import profilePic from "@/assets/images/profile.jpeg";
 import { Container } from "@/components/container";
 
 export function About() {
@@ -26,29 +28,27 @@ export function About() {
 
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
-                I&apos;m a Frontend & Mobile Engineer who believes that code is
-                a tool for crafting experiences, not just building features.
+                Passionate Frontend and Mobile App Developer with over 5 years
+                of experience creating clean, responsive, and user-friendly
+                interfaces.
               </p>
               <p>
-                With a focus on performance, accessibility, and clean
-                architecture, I help startups and established brands build
-                products that scale and delight users.
+                Experienced in building cross-platform applications across
+                fintech, social media, e-commerce, and software agencies,
+                delivering responsive web and mobile applications that users
+                love.
               </p>
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative aspect-square max-w-sm mx-auto w-full"
-          >
-            <div className="absolute inset-0 bg-primary/20 rounded-[3rem] blur-3xl" />
-            <div className="relative h-full w-full rounded-[3rem] border-2 border-primary/20 bg-muted/50 flex flex-center">
-              <span className="text-8xl">👨‍💻</span>
-            </div>
-          </motion.div>
+          <div className="relative aspect-square max-w-[500px] mx-auto lg:ml-auto overflow-hidden rounded-[2.5rem] border bg-muted shadow-xl">
+            <Image
+              src={profilePic}
+              alt="Paul Ceejay Profile"
+              priority
+              className="object-cover transition-transform duration-700 hover:scale-105"
+            />
+          </div>
         </div>
       </Container>
     </section>

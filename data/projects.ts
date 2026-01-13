@@ -15,7 +15,7 @@ export const projects: IProject[] = [
       "My first personal portfolio website built with Next.js and Tailwind CSS.",
     tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
     link: "https://paulceejay.vercel.app",
-    github: "https://github.com/paulceejay/portfolio",
+    github: "https://github.com/paulceejay/paulceejay",
     featured: true,
   },
   // Add more projects as needed

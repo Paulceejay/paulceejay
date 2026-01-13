@@ -3,8 +3,19 @@
 import { motion } from "framer-motion";
 import { Container } from "@/components/container";
 import { siteConfig } from "@/config/site";
-import { ArrowRight, Github, Linkedin, Twitter, Globe } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Globe } from "lucide-react";
 import Link from "next/link";
+
+const XIcon = ({ className }: { className?: string }) => (
+  <svg
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    className={className}
+    fill="currentColor"
+  >
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 
 export function Hero() {
   return (
@@ -47,9 +58,9 @@ export function Hero() {
             className="mt-12 max-w-2xl text-xl text-muted-foreground sm:text-2xl leading-relaxed text-balance"
           >
             I&apos;m{" "}
-            <span className="font-bold text-foreground">Chinedu Paul</span>. I
-            build high-performance, beautifully crafted digital experiences with
-            React, Next.js, and React Native.
+            <span className="font-bold text-foreground">Chinedu Paul</span>. A
+            passionate Frontend and Mobile App Developer dedicated to building
+            high-performance, beautifully crafted digital experiences.
           </motion.p>
 
           <motion.div
@@ -96,12 +107,12 @@ export function Hero() {
               <Linkedin className="h-7 w-7" />
             </a>
             <a
-              href={siteConfig.links.twitter}
+              href={siteConfig.links.x}
               target="_blank"
               rel="noreferrer"
               className="hover:text-primary transition-colors hover:scale-125 duration-300"
             >
-              <Twitter className="h-7 w-7" />
+              <XIcon className="h-7 w-7" />
             </a>
           </motion.div>
         </div>

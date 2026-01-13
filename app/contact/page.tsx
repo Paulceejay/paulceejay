@@ -1,6 +1,17 @@
 import { Container } from "@/components/container";
 import { siteConfig } from "@/config/site";
-import { Mail, Github, Linkedin, Twitter, MapPin, Phone } from "lucide-react";
+
+const XIcon = ({ className }: { className?: string }) => (
+  <svg
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    className={className}
+    fill="currentColor"
+  >
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
+import { Mail, Github, Linkedin, MapPin, Phone } from "lucide-react";
 
 export const metadata = {
   title: "Contact",
@@ -36,7 +47,7 @@ export default function ContactPage() {
                   <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
                     Email
                   </p>
-                  <p className="text-lg font-bold">paulceejay02@gmail.com</p>
+                  <p className="text-lg font-bold">paulchinedu717@gmail.com</p>
                 </div>
               </a>
 
@@ -53,9 +64,9 @@ export default function ContactPage() {
                     label: "LinkedIn",
                   },
                   {
-                    icon: Twitter,
-                    href: siteConfig.links.twitter,
-                    label: "Twitter",
+                    icon: XIcon,
+                    href: siteConfig.links.x,
+                    label: "X",
                   },
                 ].map((social) => (
                   <a
@@ -63,7 +74,7 @@ export default function ContactPage() {
                     href={social.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 flex flex-center p-4 rounded-xl border bg-card hover:border-primary/50 transition-all card-hover transition-colors"
+                    className="flex-1 flex flex-center p-4 rounded-xl border bg-card hover:border-primary/50 transition-all card-hover"
                   >
                     <social.icon className="h-6 w-6" />
                   </a>
@@ -81,7 +92,7 @@ export default function ContactPage() {
                   </label>
                   <input
                     className="w-full bg-muted/50 border-none rounded-xl p-4 focus:ring-2 focus:ring-primary outline-none"
-                    placeholder="John Doe"
+                    placeholder="Chinedu Paul"
                   />
                 </div>
                 <div className="space-y-2">
@@ -90,7 +101,7 @@ export default function ContactPage() {
                   </label>
                   <input
                     className="w-full bg-muted/50 border-none rounded-xl p-4 focus:ring-2 focus:ring-primary outline-none"
-                    placeholder="john@example.com"
+                    placeholder="paulchinedu717@gmail.com"
                   />
                 </div>
               </div>

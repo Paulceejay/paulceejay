@@ -1,5 +1,7 @@
 import { Container } from "@/components/container";
 import { siteConfig } from "@/config/site";
+import Image from "next/image";
+import profilePic from "@/assets/images/profile.jpeg";
 import { ArrowRight, Code2, Smartphone, Terminal, Palette } from "lucide-react";
 
 export const metadata = {
@@ -60,8 +62,13 @@ export default function AboutPage() {
 
           <div className="relative aspect-square max-w-md mx-auto w-full group">
             <div className="absolute inset-0 bg-primary/20 rounded-[3rem] blur-[80px] group-hover:bg-primary/30 transition-all duration-700" />
-            <div className="relative w-full h-full rounded-[3rem] border-2 border-primary/20 bg-muted overflow-hidden flex items-center justify-center">
-              <Terminal className="h-32 w-32 text-primary/30" />
+            <div className="relative w-full h-full rounded-[3rem] border-2 border-primary/20 bg-muted overflow-hidden shadow-2xl">
+              <Image 
+                src={profilePic} 
+                alt="Chinedu Paul" 
+                priority
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
             </div>
           </div>
         </div>

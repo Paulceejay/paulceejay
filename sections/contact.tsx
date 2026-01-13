@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { Container } from "@/components/container"
 import { siteConfig } from "@/config/site"
-import { Mail, ArrowRight, Github, Linkedin, Twitter } from "lucide-react"
+import { Mail, ArrowRight, Github, Linkedin } from "lucide-react"
 import Link from "next/link"
 
 export function Contact() {

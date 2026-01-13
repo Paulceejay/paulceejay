@@ -10,7 +10,7 @@ export function JsonLd() {
     sameAs: [
       siteConfig.links.github,
       siteConfig.links.linkedin,
-      siteConfig.links.twitter,
+      siteConfig.links.x,
     ],
     description: siteConfig.description,
   };
