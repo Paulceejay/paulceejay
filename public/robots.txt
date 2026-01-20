@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://paulceejay.vercel.app
+
+# Sitemaps
+Sitemap: https://paulceejay.vercel.app/sitemap.xml

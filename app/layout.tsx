@@ -24,12 +24,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// google-site-verification=a9JfZjsljn2-e0vNQtQ-L70pA-OUp3n13w7lEidyIsY
+
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  verification: {
+    google: "a9JfZjsljn2-e0vNQtQ-L70pA-OUp3n13w7lEidyIsY",
+  },
   keywords: siteConfig.keywords,
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
