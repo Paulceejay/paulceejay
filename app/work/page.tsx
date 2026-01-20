@@ -1,5 +1,5 @@
 import { Container } from "@/components/container"
-import { projects } from "@/data/skills"
+import { projects } from "@/data/projects"
 import { ProjectCard } from "@/components/project-card"
 
 export const metadata = {

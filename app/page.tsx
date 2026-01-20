@@ -3,7 +3,7 @@ import { Skills } from "@/sections/skills";
 import { Contact } from "@/sections/contact";
 import { About } from "@/sections/about";
 import { Container } from "@/components/container";
-import { projects } from "@/data/skills";
+import { projects } from "@/data/projects";
 import { ProjectCard } from "@/components/project-card";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -15,7 +15,6 @@ export default function Home() {
     <div className="flex flex-col gap-24 pb-20">
       <Hero />
       <About />
-      <Skills />
 
       <section className="relative">
         <Container>
@@ -40,6 +39,7 @@ export default function Home() {
       </section>
 
       <Contact />
+      <Skills />
     </div>
   );
 }

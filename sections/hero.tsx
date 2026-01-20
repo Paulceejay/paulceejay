@@ -90,30 +90,29 @@ export function Hero() {
             transition={{ duration: 1, delay: 0.5 }}
             className="mt-20 flex items-center gap-8 text-muted-foreground"
           >
-            <a
-              href={siteConfig.links.github}
+            <Link              href={siteConfig.links.github}
               target="_blank"
               rel="noreferrer"
               className="hover:text-primary transition-colors hover:scale-125 duration-300"
             >
               <Github className="h-7 w-7" />
-            </a>
-            <a
+            </Link>
+            <Link
               href={siteConfig.links.linkedin}
               target="_blank"
               rel="noreferrer"
               className="hover:text-primary transition-colors hover:scale-125 duration-300"
             >
               <Linkedin className="h-7 w-7" />
-            </a>
-            <a
+            </Link>
+            <Link
               href={siteConfig.links.x}
               target="_blank"
               rel="noreferrer"
               className="hover:text-primary transition-colors hover:scale-125 duration-300"
             >
               <XIcon className="h-7 w-7" />
-            </a>
+            </Link>
           </motion.div>
         </div>
       </Container>

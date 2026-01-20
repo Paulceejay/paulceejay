@@ -9,8 +9,8 @@ interface ProjectCardProps {
     title: string;
     description: string;
     image: string;
-    tags: string[];
-    live: string;
+    tech: string[];
+    link: string;
     github: string;
     category: string;
     featured?: boolean;
@@ -37,17 +37,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <div className="relative aspect-[16/10] overflow-hidden m-4 rounded-[2rem]">
         <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
         <div className="w-full h-full bg-muted flex items-center justify-center">
-          {/* Placeholder for images until user provides them */}
-          <Code2 className="h-16 w-16 text-muted-foreground/30 group-hover:scale-125 transition-transform duration-700" />
         </div>
-        {/* If actual images exist:
         <Image 
           src={project.image} 
           alt={project.title} 
           fill 
           className="object-cover transition-transform duration-700 group-hover:scale-110"
         />
-        */}
+       
       </div>
 
       {/* Content */}
@@ -60,19 +57,19 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </p>
 
         <div className="flex flex-wrap gap-2 mb-8">
-          {project.tags.map((tag) => (
+          {project.tech.map((tech) => (
             <span
-              key={tag}
+              key={tech}
               className="px-3 py-1 rounded-lg bg-muted text-[10px] font-bold uppercase tracking-widest"
             >
-              {tag}
+              {tech}
             </span>
           ))}
         </div>
 
         <div className="flex items-center gap-4">
           <a
-            href={project.live}
+            href={project.link}
             target="_blank"
             rel="noreferrer"
             className="flex-1 inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-primary text-sm font-bold text-white transition-all card-hover"

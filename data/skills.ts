@@ -1,12 +1,3 @@
-import {
-  Github,
-  Linkedin,
-  ExternalLink,
-  Mail,
-  Phone,
-  MapPin,
-} from "lucide-react";
-
 export const skills = [
   { name: "React", icon: "atom", category: "Frontend", color: "#61DAFB" },
   { name: "Next.js", icon: "layers", category: "Frontend", color: "#000000" },
@@ -52,41 +43,6 @@ export const skills = [
   },
   { name: "Figma", icon: "figma", category: "Tools", color: "#F24E1E" },
   { name: "EAS Build", icon: "package", category: "Tools", color: "#000020" },
-];
-
-export const projects = [
-  {
-    title: "Growthlobby Agency",
-    description:
-      "A high-performance agency website built with Next.js and Framer Motion.",
-    image: "/projects/growthlobby.png",
-    tags: ["Next.js", "Tailwind CSS", "Motion"],
-    live: "https://growthlobby.io",
-    github: "#",
-    category: "Web",
-    featured: true,
-  },
-  {
-    title: "Ventlio Inventory",
-    description:
-      "Offline-first smart business software for African enterprises.",
-    image: "/projects/ventlio.png",
-    tags: ["React Native", "SQLite", "Expo"],
-    live: "#",
-    github: "#",
-    category: "Mobile",
-    featured: true,
-  },
-  {
-    title: "Rendl Social",
-    description: "A social network for meaningful connections and friendship.",
-    image: "/projects/rendl.png",
-    tags: ["React", "Firebase", "TypeScript"],
-    live: "#",
-    github: "#",
-    category: "Web",
-    featured: true,
-  },
 ];
 
 export const experience = [
